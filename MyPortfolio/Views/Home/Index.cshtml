@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@* #006666 *@
+
+<script>
+    function updateTime() {
+        var now = new Date();
+        var formattedTime = now.getFullYear() + " " +
+            ("0" + (now.getMonth() + 1)).slice(-2) + " " +
+            ("0" + now.getDate()).slice(-2) + " " +
+            ("0" + now.getHours()).slice(-2) + ":" +
+            ("0" + now.getMinutes()).slice(-2) + ":" +
+            ("0" + now.getSeconds()).slice(-2);
+        document.getElementById("currentDateTime").innerText = formattedTime;
+    }
+
+    setInterval(updateTime, 1000); // Update every second
+    updateTime(); // Initial call to display time immediately
+</script>
+
+<style>
+    h1,h2{
+        color:teal;
+    }
+
+    .image {
+        box-shadow: 10px 10px 20px grey; /* Adjust the values as needed */
+        width:70%;
+    }
+    .btn{
+        background-color: teal;
+        color:white;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-6">
+            <p><span id="currentDateTime"></span></p>
+            <h1 class="display-4 ">Hello!</h1>
+            <h2 class="">I am Anju</h2>
+            <p>I am a web developer based in Sweden.</p>
+            <p class="fst-italic">
+                Mastering the stack is not just about knowing how to build; it's about
+                understanding how to make it work seamlessly together—from the front-end to the
+                back-end, with efficiency and scalability at the core.
+            </p>
+            <div class="mt-3">
+                <a class="btn  text-white" asp-area="" asp-controller="Home" asp-action="Contact">Contact Me</a>
+            </div>
+        </div>
+        <!-- Right Column -->
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <div class="border-4 #008080 rounded-circle">
+                <img src="~/images/profile.jpg" alt="Profile Picture" class=" image img-fluid border-4 #008080 rounded-circle shadow-lg " />
+            </div>
+        </div>
+    </div>
+    <div class="row container-fluid text-center ">
+        <ul>
+            <li class="d-inline">
+                <a class="btn  text-warning" asp-area="" asp-controller="Home" asp-action="About"></a>
+            </li>
+            <li class="d-inline">
+                <a class="btn  text-warning" asp-area="" asp-controller="Home" asp-action="Skills"></a>
+            </li>
+            <li class="d-inline">
+                <a class="btn  text-warning" asp-area="" asp-controller="Home" asp-action="Project"></a>
+            </li>
+            <li class="d-inline">
+                <a class="btn  text-warning" asp-area="" asp-controller="Home" asp-action="Contact"></a>
+            </li>
+        </ul>
+
+    </div>
+</div>
